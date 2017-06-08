@@ -20,6 +20,16 @@
     /*2*/
     var arr = new Array();
     var arr = [];
-console.log(arr instanceof Array)
+    var colors = ['red', 'blue', 'white', 'gray'];
+    console.log(colors);
+    //toString
+    console.log(colors.toString());
+    console.log(arr instanceof Array)
+    //join只接受一个参数，即作为分隔符的参数
+    console.log(colors.join("*"));
+    //push 添加到末尾，返回新的长度。pop从末尾删除
+    //unshift添加到开头，shift从开头删除
+    var count = colors.push('black','green');
+    console.log(count)
 </script>
 </html>
