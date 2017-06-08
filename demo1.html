@@ -8,6 +8,7 @@
 
 </body>
 <script>
+    var now1 = Date.now()
     var person = new Object();
     person.name = "张加强";
     person.sex = "男";
@@ -49,6 +50,14 @@
     var splice3 = color3.splice(2,0,'sss','ddd');
     console.log("splice3:"+splice3)
 //2222222
+    for(var i =0;i<colors.length;i++){
+        colors[i] = colors[i]+i
+    }
+    console.log(colors)
+    var now2 = Date.now();
+    console.log(now2);
+    console.log(now1);
+    console.log(now2-now1);
 
 </script>
 </html>
