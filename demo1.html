@@ -31,5 +31,24 @@
     //unshift添加到开头，shift从开头删除
     var count = colors.push('black','green');
     console.log(count)
+    //排序
+    var re = colors.reverse();
+    var sort = colors.sort();
+    console.log(sort)
+    //concat(),
+    var color2 = colors.concat('111',['222','333'])
+    console.log(color2 instanceof Array)
+    //截取slice();两个参数情况：参数的第一个开始，到末尾，但不包含最后一个
+    var color3 = color2.slice(1,5);
+    console.log(color3);
+    //splice()----始终返回从原来的删除的项
+    //1.两个参数，删除，要删除的第一个位置，删除的项数
+    var splice2 = color2.splice(0,2);
+    console.log("splice2:"+splice2);
+    //插入：3各参数。起始位置，要删除的项数，要插入的项
+    var splice3 = color3.splice(2,0,'sss','ddd');
+    console.log("splice3:"+splice3)
+
+
 </script>
 </html>
