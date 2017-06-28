@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //在函数执行时，this 总是指向调用该函数的对象。要判断 this 的指向，其实就是判断 this 所在的函数属于谁。
+    var myObject = {value:111};
+    myObject.getValue = function(){
+        console.log(this.value);//输出100
+        console.log(this);//输出 { value: 100, getValue: [Function] }
+    }
+    myObject.getValue();
+</script>
+</html>
