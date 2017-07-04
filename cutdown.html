@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libs/jquery-2.1.1.min.js"></script>
+    <script src="libs/json2.js"></script>
+</head>
+<body>
+<div class="list" hotelId='555' hotelName='如家'>如家</div>
+</body>
+<script>
+    function setCookie(name, value) {
+        var t = 30;//天数
+        var exp = new Date();
+        exp.setTime(exp.getTime() + t * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + exp.toUTCString();
+        document.cookie = name + '=' + value + ';' + expires;
+    };
+    function getCookie(name) {
+        var name = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+        }
+        return "";
+    };
+    function delCookie(name) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval = getCookie(name);
+        if (cval != null)
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    };
+    var json = [];
+    var chartData = [];
+    var hId = $(".list").attr('hotelId');
+    var hNm = $(".list").attr('hotelName');
+    $(".list").on('click', function () {
+        var flag = getCookie('hotelMsg');
+        var arr = {
+            'hotelId': hId,
+            'hotelName': hNm
+        }
+        json.push(arr);
+        var str = JSON.stringify(json);
+        console.log(str)
+        if(flag){
+            setCookie('hotelMsg',flag);
+        }else {
+            var res = getCookie('hotelMsg');
+            console.log(JSON.parse(res).length);
+            setCookie('hotelMsg',res);
+        }
+    });
+
+</script>
+</html>
